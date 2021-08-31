@@ -1,0 +1,36 @@
+version: '3'
+
+volumes:
+  postgres_data:
+    external: false
+
+services:
+  database:
+    image: postgres:13.3
+    container_name: una_hora_database
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: dev_web_start
+    entrypoint: /src/docker-entrypoint.sh
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgres://postgres:password@database:5432/postgres
+      - DJANGO_SETTINGS_MODULE=config.settings.local
+    restart: on-failure
+    volumes:
+      - .:/src/
+    ports:
+      - 8000:8000
+    links:
+      - database:database
