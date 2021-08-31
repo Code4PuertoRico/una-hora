@@ -1,4 +1,4 @@
-# Horas (1hora.org)
+# Una Hora (unahora.org)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-397/)
@@ -12,7 +12,7 @@ Este proyecto pretende conectar a estas personas que quieren cambiar el mundo co
 
 Como un segundo paso, ahora queremos llevar esta idea al mundo. Queremos ayudar a otras personas fuera de Puerto Rico a crear comunidades y facilitar esa conección que aveces hace falta para llevar un proyecto al éxito.
 
-Para leer mas sobre el proyecto de Horas vea la [version del README en español](docs/es/README-es.md)
+Para leer mas sobre el proyecto de Una Hora vea la [version del README en español](docs/es/README-devs.md)
 
 ## Hello!
 
@@ -22,4 +22,4 @@ This project was created to make the connections between these project leaders a
 
 As a second step, we now want to extend this idea to the world. We want to help other people outside of Puerto Rico to create communities y facilitate the connections that are sometimes needed to take projects to the next level.
 
-To read more about the Horas project please read the [English version of the README](docs/en/README-en.md)
+To read more about the Una Hora project please read the [English version of the README](docs/en/README-devs.md)
