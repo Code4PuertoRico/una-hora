@@ -34,6 +34,13 @@ case "$1" in
     ;;
 
   "dev_tailwind_start")
+    echo "==> Installing frontend dependencies..."
+    pipenv run python manage.py tailwind install
+
+    echo "==> Preparing frontend assets..."
+    pipenv run python manage.py tailwind build
+    pipenv run python manage.py collectstatic --no-input
+
     echo "==> Running frontend..."
     pipenv run python manage.py tailwind start
     ;;

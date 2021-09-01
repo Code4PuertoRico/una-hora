@@ -27,7 +27,3 @@ RUN pip install --no-cache-dir pipenv==2021.5.29 && \
 
 COPY --chown=appuser:appuser . /src/
 
-RUN pipenv run python manage.py tailwind install --no-input
-RUN pipenv run python manage.py tailwind build --no-input
-RUN pipenv run python manage.py collectstatic --no-input
-
