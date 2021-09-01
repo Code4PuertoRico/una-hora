@@ -25,10 +25,8 @@ La mejor manera de utilizar Docker en Mac OS o Windows PC es utilizando [Docker 
 # Clonear repositorio
 $ git clone https://github.com/Code4PuertoRico/una-hora.git
 
-
 # Copiar archivo de variables de ambiente
 $ cp .env.example .env
-
 
 # Crear la imagen de Docker y correrla en un contenedor separado del terminal
 $ docker-compose up --build --detach
@@ -58,7 +56,6 @@ $ pipenv install --dev
 
 # Instalar dependencias para el frontend
 $ pipenv run python manage.py tailwind install
-
 
 # Migración y data inicial
 $ pipenv run python manage.py migrate

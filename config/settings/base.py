@@ -20,7 +20,7 @@ dotenv.load_dotenv(
 )
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-APPS_DIR = Path(BASE_DIR).joinpath("una_hora")
+APPS_DIR = BASE_DIR / "una_hora"
 
 
 # Quick-start development settings - unsuitable for production
@@ -132,13 +132,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_ROOT = Path(BASE_DIR).joinpath("assets")
 STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "assets"
+print(f"{STATIC_ROOT=}")
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = "/content/"
-MEDIA_ROOT = Path(BASE_DIR).joinpath("content")
+MEDIA_ROOT = BASE_DIR / "content"
 
 
 ADMINS = []
@@ -176,5 +177,5 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # Django 3.2 default primary key
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
-# Django-Tailwind
+# django-tailwind
 TAILWIND_APP_NAME = "una_hora.theme"

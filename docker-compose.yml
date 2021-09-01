@@ -34,3 +34,19 @@ services:
       - 8000:8000
     links:
       - database:database
+
+  tailwind:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: dev_tailwind_start
+    entrypoint: /src/docker-entrypoint.sh
+    env_file:
+      - .env
+    environment:
+      - DJANGO_SETTINGS_MODULE=config.settings.local
+    restart: on-failure
+    volumes:
+      - .:/src/
+    ports:
+      - 8383:8383

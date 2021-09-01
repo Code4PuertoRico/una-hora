@@ -2,10 +2,8 @@
 
 set -euo pipefail
 
-pip freeze
-
 postgres_ready() {
-    python manage.py shell << END
+    pipenv run python manage.py shell << END
 import sys
 import psycopg2
 from django.db import connections
@@ -25,15 +23,19 @@ until postgres_ready; do
 case "$1" in
   "dev_web_start")
     echo "==> Running migrations..."
-    python manage.py collectstatic --noinput
-    python manage.py makemigrations
-    python manage.py migrate
+    pipenv run python manage.py makemigrations
+    pipenv run python manage.py migrate
 
     echo "==> Loading initial data..."
-    python manage.py loaddata "una_hora/users/fixtures/initial.json"
+    pipenv run python manage.py loaddata "una_hora/users/fixtures/initial.json"
 
     echo "==> Running web dev server..."
-    python manage.py runserver 0.0.0.0:8000
+    pipenv run python manage.py runserver 0.0.0.0:8000
+    ;;
+
+  "dev_tailwind_start")
+    echo "==> Running frontend..."
+    pipenv run python manage.py tailwind start
     ;;
 
   *)

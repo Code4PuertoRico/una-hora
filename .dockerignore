@@ -123,3 +123,6 @@ celerybeat-schedule
 # sqlite
 db.sqlite3
 db.sqlite
+
+# nodejs
+**/node_modules

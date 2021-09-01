@@ -1,4 +1,4 @@
-{
+[{
   "model": "users.user",
   "pk": "4a6fc806-fa23-40a5-bd2e-b6d2fc8b0958",
   "fields": {
@@ -13,4 +13,4 @@
     "groups": [],
     "user_permissions": []
   }
-}
+}]
