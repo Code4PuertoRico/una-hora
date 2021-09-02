@@ -1,0 +1,11 @@
+{
+    "name": "una_hora",
+    "version": "1.0.0",
+    "description": "Dummy package.json to point the Heroku buildpack at the correct one.",
+    "scripts": {
+      "postinstall": "cd una_hora/theme/static_src && npm install"
+    },
+    "cacheDirectories": [
+      "una_hora/theme/static_src/node_modules"
+    ]
+  }

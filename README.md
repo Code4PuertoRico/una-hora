@@ -1,31 +1,25 @@
-# Code 4 Puerto Rico Repositorio Base
+# Una Hora (unahora.org)
 
-Repositorio base para todo proyecto en Code 4 Puerto Rico.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-397/)
+[![Black Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black)
 
-## Como utilizar esto
+## ¡Hola!
 
-Haga click en el boton de `Use this template`.
+En Puerto Rico hay cientos de personas que quieren empezar un negocio, una organización benéfica, una liga deportiva, un programa educativo entre muchas otras iniciativas. Las personas que asumen estos proyectos necesitan ayuda para lograr realizar estas cosas que tanto nos hacen falta.
 
-![Imgur: https://imgur.com/FeDfjCd](https://i.imgur.com/FeDfjCd.png?1)
+Este proyecto pretende conectar a estas personas que quieren cambiar el mundo con los mentores que los ayudarán a lograrlo.
 
-Una vez acabe el proceso de crear tu repositorio debería añadir o cambiar algunas cosas:
+Como un segundo paso, ahora queremos llevar esta idea al mundo. Queremos ayudar a otras personas fuera de Puerto Rico a crear comunidades y facilitar esa conección que aveces hace falta para llevar un proyecto al éxito.
 
-1. Cambiar `code_owner` en los workflow files encontrados en directorio [.github/workflows](.github/workflows)
-2. Cambiar el valor del `cron` en el workflow [.github/workflows/stale.yml](.github/workflows/stale.yml#L6). Esto determina cuando este workflow se ejecuta. Este valor sigue el formato de `cron`. Para más información sobre esto
-    - [Wikipedia Cron](https://en.wikipedia.org/wiki/Cron)
-    - [Crontab Guru](https://crontab.guru/)
-3. Revisar y cambiar, de ser necesario, el archivo [CONTRIBUTING.md](CONTRIBUTING.md) a algo que haga sentido para tu proyecto.
-4. Recomendamos que utilizen ["Issue Templates" y "Pull Request Templates"](https://help.github.com/en/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests).
-5. Cambiar la licencia del proyecto a una [licencia de código abierto](https://opensource.org/licenses).
-    - Tambien puedes utilizar [Choose a License](https://choosealicense.com/).
-    - [Más información sobre licencias en repositorios en GitHub](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository#where-does-the-license-live-on-my-repository)
-6. Cambiar o eliminar los `code owners` encontrados en [.github/CODEOWNERS](.github/CODEOWNERS#L5) a los usuarios pertinentes para el repositorio que se esta creando.
-    - [Más información sobre CODEOWNERS](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners)
-7. Dependiendo del proyecto es recomendable [crear "branch protections" en tu repositorio](https://help.github.com/en/github/administering-a-repository/configuring-protected-branches).
+Para leer mas sobre el proyecto de Una Hora vea la [version del README en español](docs/es/README-devs.md)
 
+## Hello!
 
-## Codigo de Conducta
+In Puerto Rico there are hundreds of people that want to start a business, a non-profit, a sports league, an educational program and many more different initiatives. The people that start and lead these projects need help to make these worthwhile projects a success.
 
-Todo proyecto en Code 4 Puerto Rico tiene que dejarse llevar por su codigo de conducta. De esto no ser posible se deberia discutir con Code 4 Puerto Rico.
+This project was created to make the connections between these project leaders and the mentors that can help them succeed.
 
-Si estas usando este "template" para un proyecto fuera de Code 4 Puerto Rico les recomendamos utilizar un código de conducta mencionado [aquí](https://opensource.guide/code-of-conduct/).
+As a second step, we now want to extend this idea to the world. We want to help other people outside of Puerto Rico to create communities y facilitate the connections that are sometimes needed to take projects to the next level.
+
+To read more about the Una Hora project please read the [English version of the README](docs/en/README-devs.md)
