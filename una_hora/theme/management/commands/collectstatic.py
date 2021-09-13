@@ -1,7 +1,7 @@
-from django.core.management import call_command
 from django.contrib.staticfiles.management.commands.collectstatic import (
     Command as CollectStaticCommand,
 )
+from django.core.management import call_command
 
 
 class Command(CollectStaticCommand):

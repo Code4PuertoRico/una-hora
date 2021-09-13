@@ -1,11 +1,15 @@
 import uuid
 
+import pytz
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
 from django.core.mail import send_mail
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from taggit.managers import TaggableManager
+
+TIMEZONE_CHOICES = [(tz, tz.split("/")[-1]) for tz in pytz.common_timezones_set]
 
 
 class CustomUserManager(BaseUserManager):
@@ -42,9 +46,7 @@ class CustomUserManager(BaseUserManager):
 
 class User(AbstractBaseUser, PermissionsMixin):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
-    name = models.CharField(blank=True, max_length=255)
     email = models.EmailField(verbose_name=_("email address"), unique=True)
-
     is_staff = models.BooleanField(
         verbose_name=_("staff status"),
         default=False,
@@ -58,9 +60,32 @@ class User(AbstractBaseUser, PermissionsMixin):
             "Unselect this instead of deleting accounts."
         ),
     )
-
     date_joined = models.DateTimeField(
         verbose_name=_("date joined"), default=timezone.now
+    )
+
+    # profile fields
+    full_name = models.CharField(
+        blank=True, max_length=255, verbose_name=_("user's full name")
+    )
+    bio = models.TextField(blank=True, verbose_name=_("user's bio"))
+    meeting_day = models.PositiveSmallIntegerField(
+        null=True, verbose_name=_("day of week available for meetings")
+    )
+    meeting_time = models.TimeField(
+        null=True, blank=True, verbose_name=_("time available for meetings")
+    )
+    meeting_method = models.TextField(
+        blank=True, verbose_name=_("user's preferred meeting method with instructions")
+    )
+    timezone = models.CharField(
+        max_length=255,
+        verbose_name=_("user's timezone"),
+        default="America/Puerto_Rico",
+        choices=TIMEZONE_CHOICES,
+    )
+    tags = TaggableManager(
+        blank=True,
     )
 
     objects = CustomUserManager()
@@ -73,6 +98,10 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.email
 
     class Meta:
+        indexes = [
+            models.Index(fields=["email"]),
+            models.Index(fields=["-date_joined"]),
+        ]
         verbose_name = _("user")
         verbose_name_plural = _("users")
 

@@ -30,6 +30,9 @@ $ cp .env.example .env
 
 # Crear la imagen de Docker y correrla en un contenedor separado del terminal
 $ docker-compose up --build --detach
+
+# Luego de escribir código, correr pre-commit
+$ docker-compose run web pre_commit
 ```
 
 El archivo docker-compose.yml contiene toda la configuración de los servicios de Docker necesarios tener una instancia de Una Hora corriendo.
@@ -42,6 +45,7 @@ Abre tu browser en [http://0.0.0.0:8000/](http://0.0.0.0:8000/). Para accesar la
 
 - [Python 3.9](https://www.python.org/)
 - [Pipenv](https://docs.pipenv.org/en/latest/)
+- [pre-commit](https://pre-commit.com/#install)
 - [Node.js 14 o más reciente](https://nodejs.org) (incluye npm)
 
 ```bash
@@ -50,6 +54,9 @@ $ git clone https://github.com/Code4PuertoRico/una-hora.git
 
 # Copiar archivo de variables de ambiente
 $ cp .env.example .env
+
+# Instalar pre-commit en repositorio
+$ pre-commit install
 
 # Instalar dependencias Python
 $ pipenv install --dev

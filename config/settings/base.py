@@ -50,9 +50,13 @@ INSTALLED_APPS = [
     # Third-party Apps
     "tailwind",
     "django_filters",
+    "taggit",
     # Local Apps
+    "una_hora.core.apps.CoreConfig",
     "una_hora.theme.apps.ThemeConfig",
     "una_hora.users.apps.UsersConfig",
+    "una_hora.comments.apps.CommentsConfig",
+    "una_hora.meetings.apps.MeetingsConfig",
 ]
 
 MIDDLEWARE = [
@@ -179,3 +183,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 # django-tailwind
 TAILWIND_APP_NAME = "una_hora.theme"
+
+# django-taggit
+TAGGIT_CASE_INSENSITIVE = True
