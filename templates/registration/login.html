@@ -1,6 +1,7 @@
 {% extends 'registration/base.html' %}
 
 {% block content %}
+
 <section class="flex flex-col items-center max-w-sm w-full">
   <div class="mb-6">
     <h2 class="text-center text-3xl font-bold text-gray-900">Log in</h2>
@@ -9,8 +10,8 @@
     <form method="post">
       {% csrf_token %}
 
-      {% for field in form %}
-      <div class="field-group mb-4">
+      {% for field in form.visible_fields %}
+      <div class="field-group mb-4 {% if field.errors %}error{% endif %}">
         <label for="{{ field.id_for_label }}" class="mb-1">{{ field.label }}</label>
         {{ field }}
         {% if field.errors %}
