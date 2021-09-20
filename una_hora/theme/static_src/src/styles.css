@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.card {
+  @apply bg-white shadow p-8 rounded-lg;
+}
+
+.text-input {
+  @apply appearance-none relative block px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none sm:text-sm;
+}
+
+.text-input:focus {
+  @apply ring-blue-500 border-blue-500;
+}
+
+.field-group {
+  @apply flex flex-col w-full;
+}
+
+.btn-primary {
+  @apply relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+}
