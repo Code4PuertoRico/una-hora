@@ -6,6 +6,10 @@
   @apply bg-white shadow p-8 rounded-lg;
 }
 
+a {
+  @apply font-medium text-blue-600 hover:text-blue-500 hover:underline;
+}
+
 input[type='text'],
 input[type='password'],
 input[type='email'] {
