@@ -1,0 +1,92 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+<section class="flex flex-col items-center max-w-md w-full">
+  <div class="mb-6">
+    <h2 class="text-center text-3xl font-bold text-gray-900">Create your account</h2>
+  </div>
+  <div class="bg-white shadow p-8 rounded-lg w-full">
+    <form method="POST">
+      {% csrf_token %}
+
+      <div class="mb-6 flex flex-col w-full">
+        <label
+          for="{{ form.email.id_for_label }}"
+          class="text-gray-700 text-sm mb-1 font-semibold"
+        >
+          {{ form.email.label }}
+        </label>
+        <input
+          class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+          id="{{form.email.id_for_label}}"
+          name="{{form.email.name}}"
+          type="email"
+          maxlength="254"
+          autofocus
+          required
+          autocapitalize="none"
+          autocomplete="email"
+        />
+        {% if form.email.errors %}
+        <div role="alert" aria-atomic="true" class="mt-2 text-sm text-red-600">{{form.email.errors}}</div>
+        {% endif %}
+      </div>
+
+      <div class="mb-6 flex flex-col w-full">
+        <label
+          for="{{ form.password1.id_for_label }}"
+          class="text-gray-700 text-sm mb-1 font-semibold"
+        >
+          {{ form.password1.label }}
+        </label>
+        <input
+          class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+          id="{{form.password1.id_for_label}}"
+          name="{{form.password1.name}}"
+          type="password"
+          autocomplete="new-password"
+          required
+        />
+        {% if form.password1.errors %}
+        <div role="alert" aria-atomic="true" class="mt-2 text-sm text-red-600">{{form.password1.errors}}</div>
+        {% endif %}
+        <div class="mt-2 text-sm text-gray-500">{{form.password1.help_text}}</div>
+      </div>
+
+      <div class="mb-6 flex flex-col w-full">
+        <label
+          for="{{ form.password2.id_for_label }}"
+          class="text-gray-700 text-sm mb-1 font-semibold"
+        >
+          {{ form.password2.label }}
+        </label>
+        <input
+          class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+          id="{{form.password2.id_for_label}}"
+          name="{{form.password2.name}}"
+          type="password"
+          autocomplete="new-password"
+          required
+        />
+        {% if form.password2.errors %}
+        <div role="alert" aria-atomic="true" class="mt-2 text-sm text-red-600">{{form.password2.errors}}</div>
+        {% endif %}
+        <p class="mt-2 text-sm text-gray-500">{{form.password2.help_text}}</p>
+      </div>
+
+      <button
+        class="mt-4 relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        type="submit">Sign up</button>
+    </form>
+  </div>
+  {% if form.non_field_errors %}
+  <div role="alert" aria-atomic="true" class="text-red-600 mt-4">
+    {{ form.non_field_errors }}
+  </div>
+  {% endif %}
+  <p class="mt-4 text-center text-sm text-gray-600">
+    Already have an account?
+    <a class="font-medium text-blue-600 hover:text-blue-500" href="/account/login">Log in</a>
+  </p>
+</section>
+{% endblock %}
