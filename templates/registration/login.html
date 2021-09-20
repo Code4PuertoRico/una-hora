@@ -9,44 +9,21 @@
     <form method="post">
       {% csrf_token %}
 
-      <div class="field-group mb-6">
-        <label
-          for="{{ form.username.id_for_label }}"
-          class="text-gray-700 text-sm mb-1 font-semibold"
-        >
-          {{ form.username.label }}
-        </label>
-        <input
-          class="text-input w-full"
-          type="text"
-          name="{{ form.username.name }}"
-          autofocus
-          required
-          autocapitalize="none"
-          autocomplete="username"
-          maxlength="254"
-          id="{{form.username.id_for_label }}"
-        />
+      {% for field in form %}
+      <div class="field-group mb-4">
+        <label for="{{ field.id_for_label }}" class="mb-1">{{ field.label }}</label>
+        {{ field }}
+        {% if field.errors %}
+        <div role="alert" aria-atomic="true" class="mt-2 text-sm text-red-600">{{ field.errors }}</div>
+        {% endif %}
+        {% if field.help_text %}
+        <div class="mt-2 text-sm text-gray-500">{{ field.help_text }}</div>
+        {% endif %}
       </div>
+      {% endfor %}
 
-      <div class="field-group mb-6">
-        <label
-          for="{{ form.password.id_for_label }}"
-          class="text-gray-700 text-sm mb-1 font-semibold"
-        >
-          {{ form.password.label }}
-        </label>
-        <input
-          class="text-input w-full"
-          type="password"
-          name="{{ form.password.name }}"
-          autocomplete="current-password"
-          required
-          id="{{ form.password.id_for_label }}"
-        />
-      </div>
       <button
-        class="btn-primary mt-4 w-full"
+        class="btn-primary mt-6 w-full"
         type="submit">Log in</button>
     </form>
   </div>

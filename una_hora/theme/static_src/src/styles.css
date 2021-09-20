@@ -6,12 +6,14 @@
   @apply bg-white shadow p-8 rounded-lg;
 }
 
-.text-input {
-  @apply appearance-none relative block px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none sm:text-sm;
+input[type='text'],
+input[type='password'],
+input[type='email'] {
+  @apply appearance-none relative block px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:ring-blue-500 focus:border-blue-500 focus:outline-none sm:text-sm;
 }
 
-.text-input:focus {
-  @apply ring-blue-500 border-blue-500;
+label {
+  @apply text-gray-700 text-sm font-semibold;
 }
 
 .field-group {

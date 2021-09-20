@@ -9,73 +9,21 @@
     <form method="POST">
       {% csrf_token %}
 
-      <div class="field-group mb-6">
-        <label
-          for="{{ form.email.id_for_label }}"
-          class="text-gray-700 text-sm mb-1 font-semibold"
-        >
-          {{ form.email.label }}
-        </label>
-        <input
-          class="text-input w-full"
-          id="{{form.email.id_for_label}}"
-          name="{{form.email.name}}"
-          type="email"
-          maxlength="254"
-          autofocus
-          required
-          autocapitalize="none"
-          autocomplete="email"
-        />
-        {% if form.email.errors %}
-        <div role="alert" aria-atomic="true" class="mt-2 text-sm text-red-600">{{form.email.errors}}</div>
+      {% for field in form %}
+      <div class="field-group mb-4">
+        <label for="{{ field.id_for_label }}" class="mb-1">{{ field.label }}</label>
+        {{ field }}
+        {% if field.errors %}
+        <div role="alert" aria-atomic="true" class="mt-2 text-sm text-red-600">{{ field.errors }}</div>
+        {% endif %}
+        {% if field.help_text %}
+        <div class="mt-2 text-sm text-gray-500">{{ field.help_text }}</div>
         {% endif %}
       </div>
-
-      <div class="field-group mb-6">
-        <label
-          for="{{ form.password1.id_for_label }}"
-          class="text-gray-700 text-sm mb-1 font-semibold"
-        >
-          {{ form.password1.label }}
-        </label>
-        <input
-          class="text-input w-full"
-          id="{{form.password1.id_for_label}}"
-          name="{{form.password1.name}}"
-          type="password"
-          autocomplete="new-password"
-          required
-        />
-        {% if form.password1.errors %}
-        <div role="alert" aria-atomic="true" class="mt-2 text-sm text-red-600">{{form.password1.errors}}</div>
-        {% endif %}
-        <div class="mt-2 text-sm text-gray-500">{{form.password1.help_text}}</div>
-      </div>
-
-      <div class="field-group mb-6">
-        <label
-          for="{{ form.password2.id_for_label }}"
-          class="text-gray-700 text-sm mb-1 font-semibold"
-        >
-          {{ form.password2.label }}
-        </label>
-        <input
-          class="text-input w-full"
-          id="{{form.password2.id_for_label}}"
-          name="{{form.password2.name}}"
-          type="password"
-          autocomplete="new-password"
-          required
-        />
-        {% if form.password2.errors %}
-        <div role="alert" aria-atomic="true" class="mt-2 text-sm text-red-600">{{form.password2.errors}}</div>
-        {% endif %}
-        <p class="mt-2 text-sm text-gray-500">{{form.password2.help_text}}</p>
-      </div>
+      {% endfor %}
 
       <button
-        class="btn-primary mt-4 w-full"
+        class="btn-primary mt-6 w-full"
         type="submit">Sign up</button>
     </form>
   </div>
