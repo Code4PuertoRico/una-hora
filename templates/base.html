@@ -18,12 +18,12 @@
 				{% if user.is_authenticated %}
 				<p class="mt-4 text-center text-sm text-gray-600">
 					Logged in as {{ user.email }}
-					<a class="font-medium text-blue-600 hover:text-blue-500" href="/account/logout">Log out</a>
+					<a href="/account/logout">Log out</a>
 				</p>
-				<p class="mt-4 text-center text-sm text-gray-600">See your <a class="font-medium text-blue-600 hover:text-blue-500" href="/account/profile">Profile</a></p>
+				<p class="mt-4 text-center text-sm text-gray-600">See your <a href="/account/profile">Profile</a></p>
 				{% else %}
 				<p class="mt-4 text-center text-sm text-gray-600">
-					<a class="font-medium text-blue-600 hover:text-blue-500" href="/account/login">Log in</a>
+					<a href="/account/login">Log in</a>
 				</p>
 				{% endif %}
 			</section>
