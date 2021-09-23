@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     # Local Apps
     "una_hora.theme.apps.ThemeConfig",
     "una_hora.users.apps.UsersConfig",
+    "una_hora.legal",
 ]
 
 MIDDLEWARE = [
