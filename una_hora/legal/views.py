@@ -5,4 +5,4 @@ from django.http import HttpResponse
 
 
 def legal(request):
-    return HttpResponse("This is the legal page")
+    return render(request, "This is the legal page")
