@@ -252,4 +252,3 @@ Admin/Owner | Granted to people ultimately responsible for the project, its comm
 ## Attribution
 
 This guide was generated and adapted using the WeAllJS `CONTRIBUTING.md` generator. [Make your own](https://npm.im/weallcontribute)!
-

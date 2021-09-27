@@ -30,6 +30,9 @@ $ cp .env.example .env
 
 # Build the Docker image and run it in detached mode
 $ docker-compose up --build --detach
+
+# After writing code, run pre-commit
+$ docker-compose run web pre_commit
 ```
 
 The docker-compose.yml file contains all the configuration needed to have a running instance of Una Hora.
@@ -45,11 +48,15 @@ Now you can point your browser to [http://0.0.0.0:8000/](http://0.0.0.0:8000/). 
 
 - [Python 3.9](https://www.python.org/)
 - [Pipenv](https://docs.pipenv.org/en/latest/)
+- [pre-commit](https://pre-commit.com/#install)
 - [Node.js 14 or newer](https://nodejs.org) (includes npm)
 
 ```bash
 # Clone the rep
 $ git clone https://github.com/Code4PuertoRico/una-hora.git
+
+# Install pre-commit hooks
+$ pre-commit install
 
 # Make a copy of the .env.example file
 $ cp .env.example .env

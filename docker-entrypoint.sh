@@ -45,6 +45,11 @@ case "$1" in
     pipenv run python manage.py tailwind start
     ;;
 
+  "pre_commit")
+    echo "==> Running pre-commit..."
+    pipenv run pre-commit run --all-files
+    ;;
+
   *)
     exec "$@"
     ;;
