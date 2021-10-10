@@ -94,6 +94,12 @@ class User(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 
+    def serialize(self):
+        return {
+            "id": self.id,
+            "FullName": self.full_name,
+        }
+
     def __str__(self):
         return self.email
 

@@ -1,0 +1,64 @@
+<div>
+  {% for last_users in page_obj.object_list %}
+    <div>
+      {{last_users.FullName}}
+    </div>
+  {% endfor %}
+
+</div>
+<div id="pagination-div"style="
+          max-width: fit-content;
+          max-width: -moz-max-content;
+          max-width: intrinsic; 
+          margin-left: auto;
+          margin-right: auto;
+        ">
+      <ul class="pagination" >
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a href="users/?page=1" class="page-link">&laquo;</a>
+        </li>
+        <li class="page-item">
+        <a href="users/?page={{ page_obj.previous_page_number }}" class="page-link"
+          >Previous</a>
+        </li>
+        <a href="users/?page={{ page_obj.previous_page_number }}" class="page-link"
+          >{{ page_obj.previous_page_number }}</a
+        >
+        {% else %}
+        <li class="page-item disabled">
+          <a class="page-link" href="">&laquo; </a>
+        </li>
+
+        {% endif %}
+
+        <li class="page-item active">
+          <a class="page-link" href="#">{{ page_obj.number }}</a>
+        </li>
+
+        {% if page_obj.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="users/?page={{ page_obj.next_page_number }}"
+            >{{ page_obj.next_page_number }}</a
+          >
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="users/?page={{ page_obj.next_page_number }}"
+            >Next</a
+          >
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="users/?page={{ page_obj.paginator.num_pages }}">
+            &raquo;</a
+          >
+        </li>
+        {%else%}
+        <li class="page-item disabled">
+          <a class="page-link" href="users/?page={{ page_obj.paginator.num_pages }}">
+            &raquo;</a
+          >
+        </li>
+
+        {% endif %}
+      </ul>
+    </div>
