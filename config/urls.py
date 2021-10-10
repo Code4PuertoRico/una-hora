@@ -22,8 +22,8 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path("", TemplateView.as_view(template_name="base.html"), name="home-example"),
     path("admin/", admin.site.urls),
-    path("account/", include('una_hora.users.urls')),
-    path('account/', include('django.contrib.auth.urls')), # new
+    path("account/", include("una_hora.users.urls")),
+    path("account/", include("django.contrib.auth.urls")),  # new
 ]
 
 if settings.DEBUG:
