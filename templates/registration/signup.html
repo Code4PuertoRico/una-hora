@@ -10,16 +10,7 @@
       {% csrf_token %}
 
       {% for field in form.visible_fields %}
-      <div class="field-group mb-4 {% if field.errors %}error{% endif %}">
-        <label for="{{ field.id_for_label }}" class="mb-1">{{ field.label }}</label>
-        {{ field }}
-        {% if field.errors %}
-        <div role="alert" aria-atomic="true" class="mt-2 text-sm text-red-600">{{ field.errors }}</div>
-        {% endif %}
-        {% if field.help_text %}
-        <div class="mt-2 text-sm text-gray-500">{{ field.help_text }}</div>
-        {% endif %}
-      </div>
+      {% include "components/field-group.html" with field=field only %}
       {% endfor %}
 
       <button
