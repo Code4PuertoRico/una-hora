@@ -97,7 +97,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     def serialize(self):
         return {
             "id": self.id,
-            "FullName": self.full_name,
+            "full_name": self.full_name,
+            "bio": self.bio,
         }
 
     def __str__(self):
