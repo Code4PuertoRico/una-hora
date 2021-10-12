@@ -1,5 +1,5 @@
-from django.shortcuts import render  # noqa: F401
 from django.http import HttpResponse
+from django.shortcuts import render  # noqa: F401
 
 
 def legal(request):
