@@ -9,7 +9,7 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from taggit.managers import TaggableManager
 
-TIMEZONE_CHOICES = [(tz, tz.split("/")[-1]) for tz in pytz.common_timezones_set]
+TIMEZONE_CHOICES = sorted([(tz, tz.split("/")[-1]) for tz in pytz.common_timezones_set])
 
 
 class CustomUserManager(BaseUserManager):

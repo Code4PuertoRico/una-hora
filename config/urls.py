@@ -19,8 +19,6 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import TemplateView
 
-from config.settings.base import APPS_DIR, BASE_DIR
-
 urlpatterns = [
     path("", TemplateView.as_view(template_name="base.html"), name="home-example"),
     path("legal/", include("una_hora.core.urls")),
