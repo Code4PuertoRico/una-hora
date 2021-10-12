@@ -55,7 +55,6 @@ INSTALLED_APPS = [
     "una_hora.core.apps.CoreConfig",
     "una_hora.theme.apps.ThemeConfig",
     "una_hora.users.apps.UsersConfig",
-    "una_hora.legal",
     "una_hora.comments.apps.CommentsConfig",
     "una_hora.meetings.apps.MeetingsConfig",
 ]

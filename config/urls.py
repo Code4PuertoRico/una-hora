@@ -22,9 +22,8 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="base.html"), name="home-example"),
-    path("legal/", include('una_hora.legal.urls')),
+    path("legal/", include('una_hora.core.urls')),
     path("admin/", admin.site.urls),
-
 ]
 
 if settings.DEBUG:
