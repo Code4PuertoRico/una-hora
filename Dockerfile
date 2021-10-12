@@ -12,7 +12,7 @@ ENV USER="appuser"
 RUN apt-get -y update \
     && apt-get install -y curl \
     && curl -fsSL https://deb.nodesource.com/setup_14.x | bash - \
-    && apt-get install -y nodejs --no-install-recommends \
+    && apt-get install -y --no-install-recommends nodejs git \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && useradd --create-home appuser \
@@ -27,3 +27,4 @@ RUN pip install --no-cache-dir pipenv==2021.5.29 && \
 
 COPY --chown=appuser:appuser . /src/
 
+RUN pipenv run pre-commit install-hooks
