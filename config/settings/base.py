@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     "una_hora.users.apps.UsersConfig",
     "una_hora.comments.apps.CommentsConfig",
     "una_hora.meetings.apps.MeetingsConfig",
+    "una_hora.search",
 ]
 
 MIDDLEWARE = [
