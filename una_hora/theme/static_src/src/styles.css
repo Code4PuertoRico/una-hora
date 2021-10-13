@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.card {
+  @apply bg-white shadow p-8 rounded-lg;
+}
+
+a {
+  @apply font-medium text-blue-600 hover:text-blue-500 hover:underline;
+}
+
+input[type='text'],
+input[type='password'],
+input[type='email'] {
+  @apply appearance-none relative block px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:ring-blue-500 focus:border-blue-500 focus:outline-none sm:text-sm;
+}
+
+.error input {
+  @apply border-red-500;
+}
+
+label {
+  @apply text-gray-700 text-sm font-semibold;
+}
+
+.field-group {
+  @apply flex flex-col w-full;
+}
+
+.btn-primary {
+  @apply relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+}

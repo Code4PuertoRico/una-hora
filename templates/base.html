@@ -10,11 +10,24 @@
 		{% tailwind_css %}
 	</head>
 
-	<body class="bg-grey font-serif leading-normal tracking-normal">
+	<body class="bg-gray-50 font-sans leading-normal tracking-normal">
+		{% block main %}
 		<div class="container mx-auto">
-			<section class="flex items-center justify-center h-screen">
-				<h1 class="text-5xl">Django + Tailwind = ❤️</h1>
+			<section class="flex flex-col items-center justify-center h-screen">
+				<h1 class="text-5xl font-bold">1Hora</h1>
+				{% if user.is_authenticated %}
+				<p class="mt-4 text-center text-sm text-gray-600">
+					Logged in as {{ user.email }}
+					<a href="/account/logout">Log out</a>
+				</p>
+				<p class="mt-4 text-center text-sm text-gray-600">See your <a href="/account/profile">Profile</a></p>
+				{% else %}
+				<p class="mt-4 text-center text-sm text-gray-600">
+					<a href="/account/login">Log in</a>
+				</p>
+				{% endif %}
 			</section>
 		</div>
+		{% endblock %}
 	</body>
 </html>
