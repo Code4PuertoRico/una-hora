@@ -1,8 +1,17 @@
-version: '3'
+version: '3.7'
 
 volumes:
   postgres_data:
     external: false
+
+x-app: &app-config
+  build:
+    context: "."
+  volumes:
+    - .:/src
+  restart: "unless-stopped"
+  links:
+    - database:database
 
 services:
   database:
@@ -17,9 +26,7 @@ services:
       - "5432:5432"
 
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    <<: *app-config
     command: dev_web_start
     entrypoint: /src/docker-entrypoint.sh
     env_file:
@@ -27,28 +34,16 @@ services:
     environment:
       - DATABASE_URL=postgres://postgres:password@database:5432/postgres
       - DJANGO_SETTINGS_MODULE=config.settings.local
-    restart: unless-stopped
-    volumes:
-      - .:/src/
     ports:
       - 8000:8000
-    links:
-      - database:database
 
   tailwind:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    <<: *app-config
     command: dev_tailwind_start
     entrypoint: /src/docker-entrypoint.sh
     env_file:
       - .env
     environment:
       - DJANGO_SETTINGS_MODULE=config.settings.local
-    restart: unless-stopped
-    volumes:
-      - .:/src/
     ports:
       - 8383:8383
-    links:
-      - database:database
