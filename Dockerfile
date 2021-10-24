@@ -26,5 +26,3 @@ RUN pip install --no-cache-dir pipenv==2021.5.29 && \
     pipenv install --python 3.9 --dev
 
 COPY --chown=appuser:appuser . /src/
-
-RUN pipenv run pre-commit install-hooks

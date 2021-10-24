@@ -1,0 +1,31 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+<section class="flex flex-col items-center max-w-md w-full">
+  <div class="mb-6">
+    <h2 class="text-center text-3xl font-bold text-gray-900">Create your account</h2>
+  </div>
+  <div class="card w-full">
+    <form method="POST">
+      {% csrf_token %}
+
+      {% for field in form.visible_fields %}
+      {% include "components/field-group.html" with field=field only %}
+      {% endfor %}
+
+      <button
+        class="btn-primary mt-6 w-full"
+        type="submit">Sign up</button>
+    </form>
+  </div>
+  {% if form.non_field_errors %}
+  <div role="alert" aria-atomic="true" class="text-red-600 mt-4">
+    {{ form.non_field_errors }}
+  </div>
+  {% endif %}
+  <p class="mt-4 text-center text-sm text-gray-600">
+    Already have an account?
+    <a href="/account/login">Log in</a>
+  </p>
+</section>
+{% endblock %}
