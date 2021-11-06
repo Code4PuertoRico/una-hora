@@ -1,3 +1,5 @@
 from django.shortcuts import render  # noqa: F401
 
-# Create your views here.
+
+def legal(request):
+    return render(request, "legal.html")
