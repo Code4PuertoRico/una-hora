@@ -64,8 +64,14 @@ $ cp .env.example .env
 # Install Python dependencies
 $ pipenv install --dev
 
-# Build frontend dependencies
+# Install frontend dependencies
 $ pipenv run python manage.py tailwind install
+
+# Build frontend dependencies
+$ pipenv run python manage.py tailwind build
+
+# Prepare frontend and admin site static files
+$ pipenv run python manage.py collectstatic --no-input
 
 # Django migrate and initial data load
 $ pipenv run python manage.py migrate

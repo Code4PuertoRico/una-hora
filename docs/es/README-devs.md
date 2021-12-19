@@ -64,6 +64,12 @@ $ pipenv install --dev
 # Instalar dependencias para el frontend
 $ pipenv run python manage.py tailwind install
 
+# Construir las dependencias para el frontend
+$ pipenv run python manage.py tailwind build
+
+# Preparar los archivos estáticos del frontend y el admin
+$ pipenv run python manage.py collectstatic --no-input
+
 # Migración y data inicial
 $ pipenv run python manage.py migrate
 $ pipenv run python manage.py loaddata una_hora/users/fixtures/initial.json
