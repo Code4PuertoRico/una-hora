@@ -37,7 +37,10 @@ $ docker-compose run web pre_commit
 
 El archivo docker-compose.yml contiene toda la configuración de los servicios de Docker necesarios tener una instancia de Una Hora corriendo.
 
-Abre tu browser en [http://0.0.0.0:8000/](http://0.0.0.0:8000/). Para accesar la sección de administración ve a [http://0.0.0.0:8000/admin/](http://0.0.0.0:8000/admin/), y usa el username **admin** y el password **abc123**.
+Abre tu browser en [http://0.0.0.0:8000/](http://0.0.0.0:8000/). Para accesar la sección de administración ve a [http://0.0.0.0:8000/admin/](http://0.0.0.0:8000/admin/), y usa:
+
+* email: **admin@example.com**
+* password: **abc123**
 
 #### Opción 2: Local
 
@@ -45,8 +48,8 @@ Abre tu browser en [http://0.0.0.0:8000/](http://0.0.0.0:8000/). Para accesar la
 
 - [Python 3.9](https://www.python.org/)
 - [Pipenv](https://docs.pipenv.org/en/latest/)
-- [pre-commit](https://pre-commit.com/#install)
 - [Node.js 14 o más reciente](https://nodejs.org) (incluye npm)
+- [Postgres 13](https://www.postgresql.org/)
 
 ```bash
 # Clonear repositorio
@@ -55,20 +58,17 @@ $ git clone https://github.com/Code4PuertoRico/una-hora.git
 # Copiar archivo de variables de ambiente
 $ cp .env.example .env
 
-# Instalar pre-commit en repositorio
-$ pre-commit install
-
 # Instalar dependencias Python
 $ pipenv install --dev
+
+# Instalar pre-commit en repositorio
+$ pipenv run pre-commit install
 
 # Instalar dependencias para el frontend
 $ pipenv run python manage.py tailwind install
 
-# Construir las dependencias para el frontend
-$ pipenv run python manage.py tailwind build
-
-# Preparar los archivos estáticos del frontend y el admin
-$ pipenv run python manage.py collectstatic --no-input
+# Velar cambios y regenerar css
+$ pipenv run python manage.py tailwind start
 
 # Migración y data inicial
 $ pipenv run python manage.py migrate
@@ -78,8 +78,10 @@ $ pipenv run python manage.py loaddata una_hora/users/fixtures/initial.json
 $ pipenv run python manage.py runserver
 ```
 
-Abre tu browser en [http://localhost:8000/](http://localhost:8000/). Para accesar la sección de administración ve a [http://localhost:8000/admin/](http://localhost:8000/admin/), y usa el username **admin** y el password **abc123**.
+Abre tu browser en [http://localhost:8000/](http://localhost:8000/). Para accesar la sección de administración ve a [http://localhost:8000/admin/](http://localhost:8000/admin/), y usa:
 
+* email: **admin@example.com**
+* password: **abc123**
 
 #### Para correr tests
 ```

@@ -6,15 +6,7 @@
  */
 
 module.exports = {
-    /**
-     * Stylesheet generation mode.
-     *
-     * Set mode to "jit" if you want to generate your styles on-demand as you author your templates;
-     * Set mode to "aot" if you want to generate the stylesheet in advance and purge later (aka legacy mode).
-     */
-    mode: "aot",
-
-    purge: [
+    content: [
         /**
          * HTML. Paths to Django template files that will contain Tailwind CSS classes.
          */
@@ -32,7 +24,7 @@ module.exports = {
          * Templates in other django apps (BASE_DIR/<any_app_name>/templates).
          * Adjust the following line to match your project structure.
          */
-        '../../../**/templates/**/*.html',
+        '../../**/templates/**/*.html',
 
         /**
          * JS: If you use Tailwind CSS in JavaScript, uncomment the following lines and make sure
@@ -49,11 +41,7 @@ module.exports = {
          */
         // '../../**/*.py'
     ],
-    darkMode: false, // or 'media' or 'class'
     theme: {
-        extend: {},
-    },
-    variants: {
         extend: {},
     },
     plugins: [

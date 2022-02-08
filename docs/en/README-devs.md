@@ -39,7 +39,7 @@ The docker-compose.yml file contains all the configuration needed to have a runn
 
 Now you can point your browser to [http://0.0.0.0:8000/](http://0.0.0.0:8000/). To access the admin panel go to [http://0.0.0.0:8000/admin/](http://0.0.0.0:8000/admin/), and use the following credentials:
 
-* username: **admin**
+* email: **admin@example.com**
 * password: **abc123**
 
 #### Option 2: Local
@@ -48,15 +48,12 @@ Now you can point your browser to [http://0.0.0.0:8000/](http://0.0.0.0:8000/). 
 
 - [Python 3.9](https://www.python.org/)
 - [Pipenv](https://docs.pipenv.org/en/latest/)
-- [pre-commit](https://pre-commit.com/#install)
 - [Node.js 14 or newer](https://nodejs.org) (includes npm)
+- [Postgres 13](https://www.postgresql.org/)
 
 ```bash
 # Clone the rep
 $ git clone https://github.com/Code4PuertoRico/una-hora.git
-
-# Install pre-commit hooks
-$ pre-commit install
 
 # Make a copy of the .env.example file
 $ cp .env.example .env
@@ -67,11 +64,8 @@ $ pipenv install --dev
 # Install frontend dependencies
 $ pipenv run python manage.py tailwind install
 
-# Build frontend dependencies
-$ pipenv run python manage.py tailwind build
-
-# Prepare frontend and admin site static files
-$ pipenv run python manage.py collectstatic --no-input
+# Watch for changes and rebuild CSS
+$ pipenv run python manage.py tailwind install
 
 # Django migrate and initial data load
 $ pipenv run python manage.py migrate
@@ -83,7 +77,7 @@ $ pipenv run python manage.py runserver
 
 Now you can point your browser to [http://localhost:8000/](http://localhost:8000/). To access the admin panel go to [http://localhost:8000/admin/](http://localhost:8000/admin/), and use the following credentials:
 
-* username: **admin**
+* email: **admin@example.com**
 * password: **abc123**
 
 #### Running the Tests
