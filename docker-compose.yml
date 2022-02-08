@@ -41,6 +41,7 @@ services:
     <<: *app-config
     command: dev_tailwind_start
     entrypoint: /src/docker-entrypoint.sh
+    tty: true
     env_file:
       - .env
     environment:

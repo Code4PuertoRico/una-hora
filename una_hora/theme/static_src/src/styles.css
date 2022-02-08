@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .card {
   @apply bg-white shadow p-8 rounded-lg;
 }
